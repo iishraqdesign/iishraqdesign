@@ -23,3 +23,36 @@ document.querySelectorAll("#navMenu a").forEach(link => {
         navMenu.classList.remove("active");
     });
 });
+// ===== Lightbox =====
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeLightbox = document.querySelector(".close-lightbox");
+
+document.querySelectorAll(".gallery img").forEach(img => {
+
+    img.addEventListener("click", () => {
+
+        lightbox.classList.add("active");
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+
+    });
+
+});
+
+closeLightbox.addEventListener("click", () => {
+
+    lightbox.classList.remove("active");
+
+});
+
+lightbox.addEventListener("click", (e) => {
+
+    if (e.target === lightbox) {
+
+        lightbox.classList.remove("active");
+
+    }
+
+});
