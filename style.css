@@ -49,9 +49,13 @@ right:0;
 width:100%;
 z-index:999;
 
-background:rgba(0,0,0,.45);
+background:rgba(7,7,7,.55);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(212,175,55,.08);
+
+transition:.35s ease;
 
 }
 
@@ -69,7 +73,18 @@ padding:22px 0;
 
 font-size:34px;
 font-weight:800;
+
 color:var(--gold);
+
+letter-spacing:.5px;
+
+transition:.3s;
+
+}
+
+.logo:hover{
+
+opacity:.85;
 
 }
 
@@ -83,8 +98,14 @@ list-style:none;
 
 nav a{
 
-color:white;
+position:relative;
+
+color:#ffffff;
+
 text-decoration:none;
+
+font-weight:500;
+
 transition:.3s;
 
 }
@@ -92,6 +113,30 @@ transition:.3s;
 nav a:hover{
 
 color:var(--gold);
+
+}
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+right:0;
+bottom:-8px;
+
+width:0;
+
+height:2px;
+
+background:var(--gold);
+
+transition:.3s;
+
+}
+
+nav a:hover::after{
+
+width:100%;
 
 }
 
