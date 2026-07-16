@@ -359,45 +359,73 @@ color:#888;
 /* ===========================
    Mobile
 =========================== */
+/* Hamburger Menu */
 
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:28px;
+height:3px;
+background:#fff;
+border-radius:5px;
+transition:.3s;
+}
 @media(max-width:768px){
 
+.menu-toggle{
+display:flex;
+}
+
 nav{
-
-flex-direction:column;
-gap:18px;
-
+padding:20px 0;
 }
 
 nav ul{
 
-flex-wrap:wrap;
-justify-content:center;
-gap:18px;
+position:absolute;
+top:85px;
+right:0;
 
-}
+width:100%;
 
-.hero{
+background:#081523;
+
+display:none;
+
+flex-direction:column;
 
 text-align:center;
 
+padding:25px 0;
+
+gap:25px;
+
+}
+
+nav ul.active{
+display:flex;
+}
+
+.hero{
+text-align:center;
 }
 
 .hero h1{
-
 font-size:42px;
-
 }
 
 .hero p{
-
 font-size:18px;
-
 }
 
 .section-title{
-
 font-size:34px;
+}
 
 }
 
