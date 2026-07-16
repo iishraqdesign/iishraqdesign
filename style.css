@@ -154,14 +154,9 @@ margin-bottom:20px;
 
 font-weight:800;
 
-background:linear-gradient(
-90deg,
-#ffffff,
-var(--gold)
-);
+color:#ffffff;
 
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+text-shadow:0 5px 25px rgba(0,0,0,.35);
 
 }
 
