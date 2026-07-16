@@ -717,3 +717,56 @@ line-height:1.9;
 color:#d6d6d6;
 
 }
+/* ===== Footer ===== */
+
+footer{
+
+margin-top:100px;
+
+padding:60px 20px;
+
+background:#070707;
+
+border-top:1px solid rgba(212,175,55,.15);
+
+text-align:center;
+
+}
+
+.footer-content{
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+.footer-content h3{
+
+font-size:34px;
+
+color:var(--gold);
+
+margin-bottom:18px;
+
+}
+
+.footer-text{
+
+color:#cfcfcf;
+
+font-size:18px;
+
+line-height:1.9;
+
+margin-bottom:30px;
+
+}
+
+.copyright{
+
+font-size:15px;
+
+color:#8b8b8b;
+
+}
