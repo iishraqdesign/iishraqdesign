@@ -56,6 +56,3 @@ lightbox.addEventListener("click", (e) => {
     }
 
 });
-// السنة الحالية في الفوتر
-
-document.getElementById("year").textContent = new Date().getFullYear();
