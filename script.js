@@ -2,97 +2,136 @@
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
 
-    if (window.scrollY > 50) {
-        header.style.background = "rgba(0,0,0,.80)";
-    } else {
-        header.style.background = "rgba(0,0,0,.45)";
+    if (header) {
+        if (window.scrollY > 50) {
+            header.style.background = "rgba(0,0,0,.80)";
+        } else {
+            header.style.background = "rgba(0,0,0,.45)";
+        }
     }
 });
+
 
 // قائمة الجوال
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+if (menuToggle && navMenu) {
 
-// إغلاق القائمة عند الضغط على أي رابط
-document.querySelectorAll("#navMenu a").forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
     });
-});
-// ===== Lightbox =====
 
+
+    document.querySelectorAll("#navMenu a").forEach(link => {
+
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+        });
+
+    });
+
+}
+
+
+// Lightbox
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const closeLightbox = document.querySelector(".close-lightbox");
+
 
 const galleryImages = document.querySelectorAll(
     ".gallery img, .portfolio-gallery img"
 );
 
-galleryImages.forEach(img => {
 
-    img.addEventListener("click", () => {
+if (lightbox && lightboxImg) {
 
-        lightbox.classList.add("active");
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
+    galleryImages.forEach(img => {
+
+        img.addEventListener("click", () => {
+
+            lightbox.classList.add("active");
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+
+        });
 
     });
 
-});
 
+    if (closeLightbox) {
 
-closeLightbox.addEventListener("click", () => {
+        closeLightbox.addEventListener("click", () => {
 
-    lightbox.classList.remove("active");
+            lightbox.classList.remove("active");
 
-});
-
-
-lightbox.addEventListener("click", (e) => {
-
-    if (e.target === lightbox) {
-
-        lightbox.classList.remove("active");
+        });
 
     }
 
-});
-    const filterButtons = document.querySelectorAll(".portfolio-filters button");
-const galleryItems = document.querySelectorAll(".gallery-item");
 
-if (filterButtons.length && galleryItems.length) {
+    lightbox.addEventListener("click", (e) => {
 
-filterButtons.forEach(button => {
+        if (e.target === lightbox) {
 
-button.addEventListener("click", () => {
+            lightbox.classList.remove("active");
 
-filterButtons.forEach(btn => btn.classList.remove("active"));
+        }
 
-button.classList.add("active");
-
-const filter = button.dataset.filter;
-
-galleryItems.forEach(item => {
-
-if (filter === "all" || item.dataset.category === filter) {
-
-item.style.display = "block";
-
-} else {
-
-item.style.display = "none";
+    });
 
 }
 
-});
 
-});
+// فلترة الأعمال
+const filterButtons = document.querySelectorAll(".portfolio-filters button");
+const galleryItems = document.querySelectorAll(".gallery-item");
 
-});
+
+if (filterButtons.length && galleryItems.length) {
+
+
+    filterButtons.forEach(button => {
+
+
+        button.addEventListener("click", () => {
+
+
+            filterButtons.forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
+
+
+            button.classList.add("active");
+
+
+            const filter = button.dataset.filter;
+
+
+            galleryItems.forEach(item => {
+
+
+                if (filter === "all" || item.dataset.category === filter) {
+
+                    item.style.display = "block";
+
+                } else {
+
+                    item.style.display = "none";
+
+                }
+
+
+            });
+
+
+        });
+
+
+    });
+
 
 }
