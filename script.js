@@ -29,7 +29,11 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const closeLightbox = document.querySelector(".close-lightbox");
 
-document.querySelectorAll(".gallery img").forEach(img => {
+const galleryImages = document.querySelectorAll(
+    ".gallery img, .portfolio-gallery img"
+);
+
+galleryImages.forEach(img => {
 
     img.addEventListener("click", () => {
 
@@ -41,11 +45,13 @@ document.querySelectorAll(".gallery img").forEach(img => {
 
 });
 
+
 closeLightbox.addEventListener("click", () => {
 
     lightbox.classList.remove("active");
 
 });
+
 
 lightbox.addEventListener("click", (e) => {
 
@@ -56,3 +62,37 @@ lightbox.addEventListener("click", (e) => {
     }
 
 });
+    const filterButtons = document.querySelectorAll(".portfolio-filters button");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+if (filterButtons.length && galleryItems.length) {
+
+filterButtons.forEach(button => {
+
+button.addEventListener("click", () => {
+
+filterButtons.forEach(btn => btn.classList.remove("active"));
+
+button.classList.add("active");
+
+const filter = button.dataset.filter;
+
+galleryItems.forEach(item => {
+
+if (filter === "all" || item.dataset.category === filter) {
+
+item.style.display = "block";
+
+} else {
+
+item.style.display = "none";
+
+}
+
+});
+
+});
+
+});
+
+}
